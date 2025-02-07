@@ -8,6 +8,8 @@
 # 3. EDIT a Task
 # 4. VIEW a Task
 
+from functions import *
+
 print()
 print("     ====================================")
 print("     =   WELCOME TO MY TO-DO LIST APP   =")
@@ -20,54 +22,30 @@ while True:
 
     if option == "1":
         # Add Task
-        todo = input("Enter to-do task:\n>>> ")
-        todos.append(todo)
-        print(f"{todo} has been added successfully")
-        print()
+        add_todo()
     elif option == "2":
-        if not todos:
-            print("To-Do List is empty!!")
-        else:
-            print("To-Do List: ")
-            for index, item in enumerate(todos, start=1):
-                print(f"{index}. {item}")
-            print()
+        view_todo()
 
     elif option == "3":
-        if not todos:
-            print("There are no items to update!!")
-        else:
-            try:
-                task_num = int(input("Enter the number of the item you want to update!\n>>>"))
-                new_task = input("Enter new to-do:\n>>> ")
-                todos[task_num - 1] = new_task
-                print(f"Task {task_num} has been updated successfully")
-                print()
-            except(ValueError, IndexError):
-                print("Invalid task number")
+        edit_todo()
 
     elif option == "4":
-        if not todos:
-            print("The List is empty!!")
-        else:
-            try:
-                task_num = int(input("Enter the number of item you want to delete!\n>>>"))
-                todos.pop(task_num - 1)
-                print(f"{todo} has been deleted successfully")
-                print()
-            except(ValueError, IndexError):
-                print("Invalid task number")
+        delete_todo()
 
     elif option == "5":
-        if not todos:
-            print("The List is empty!!")
-        else:
-            todos.clear()
-            print("All tasks has been cleared successfully")
-            print()
+        clear_todo()
 
     elif option == "6":
-        print("Good bye...")
-        exit()
+        exit_todo()
     else:
         pass
+
+# 2/7/2025
+# a module is a file of reusable code.
+# 3 types are:
+# 1. Built-in
+# 2. Third party
+# 3. Custom module
+# they can be used by importing them
+# syntax:
+#   import [module name]
